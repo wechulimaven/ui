@@ -241,8 +241,7 @@ class _HomeTabState extends State<HomeTab>
               
             ];
           },
-          body: TabView(
-            tabController: tabController,
+          body: TabView(            
           ),
         ),
       ),

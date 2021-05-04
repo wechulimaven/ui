@@ -1,4 +1,5 @@
 import 'package:coldStorage/models/category.dart';
+import 'package:coldStorage/screens/offersPromos.dart';
 import 'package:coldStorage/utilis/config/color.dart';
 import 'package:coldStorage/widgets/gridStaggeredCategory.dart';
 import 'package:flutter/material.dart';

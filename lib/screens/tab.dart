@@ -4,6 +4,7 @@ import 'package:coldStorage/screens/recommendedProducts.dart';
 
 import 'package:flutter/material.dart';
 
+import 'offersPromos.dart';
 
 class TabView extends StatelessWidget {
   List<Category> categories = [
@@ -45,18 +46,15 @@ class TabView extends StatelessWidget {
     // ),
   ];
 
-  final TabController tabController;
+  // final TabController tabController;
 
-  TabView({Key key, this.tabController}) : super(key: key);
+  // TabView({Key key, this.tabController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height / 9);
-    return TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: tabController,
-        children: <Widget>[
-          Container(
+    return Container(
+        
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -73,34 +71,11 @@ class TabView extends StatelessWidget {
                 SizedBox(
                   height: 16.0,
                 ),
-                Flexible(child: RecommendedList()),
+                Flexible(child: PromoListPage()),
+                // Flexible(child: RecommendedList()), 
               ],
             ),
-          ),
-          Column(children: <Widget>[
-            SizedBox(
-              height: 16.0,
-            ),
-            Flexible(child: RecommendedList())
-          ]),
-          Column(children: <Widget>[
-            SizedBox(
-              height: 16.0,
-            ),
-            Flexible(child: RecommendedList())
-          ]),
-          Column(children: <Widget>[
-            SizedBox(
-              height: 16.0,
-            ),
-            Flexible(child: RecommendedList())
-          ]),
-          Column(children: <Widget>[
-            SizedBox(
-              height: 16.0,
-            ),
-            Flexible(child: RecommendedList())
-          ]),
-        ]);
+          
+        );
   }
 }
