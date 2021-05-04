@@ -1,10 +1,12 @@
 import 'package:coldStorage/models/products.dart';
 import 'package:coldStorage/pages/search.dart';
+import 'package:coldStorage/screens/productDetailScreen.dart';
 import 'package:coldStorage/utilis/config/color.dart';
 import 'package:coldStorage/widgets/productDiplay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../product.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
@@ -25,32 +27,32 @@ class _ProductPageState extends State<ProductPage> {
     double width = MediaQuery.of(context).size.width;
     double bottomPadding = MediaQuery.of(context).padding.bottom;
 
-    Widget viewProductButton  = InkWell(
-      // onTap: () => Navigator.of(context)
-      //     .push(MaterialPageRoute(builder: (_) => ViewProductPage(product: product,))),
-      child: Container(
-        height: 80,
-        width: width / 1.5,
-        decoration: BoxDecoration(
-            gradient: mainButton,
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromRGBO(0, 0, 0, 0.16),
-                offset: Offset(0, 5),
-                blurRadius: 10.0,
-              )
-            ],
-            borderRadius: BorderRadius.circular(9.0)),
-        child: Center(
-          child: Text("View Product",
-              style: const TextStyle(
-                  color: const Color(0xfffefefe),
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 20.0)),
-        ),
-      ),
-    );
+    // Widget viewProductButton = InkWell(
+    //   // onTap: () => Navigator.of(context)
+    //   //     .push(MaterialPageRoute(builder: (_) => ViewProductPage(product: product,))),
+    //   child: Container(
+    //     height: 80,
+    //     width: width / 1.5,
+    //     decoration: BoxDecoration(
+    //         gradient: mainButton,
+    //         boxShadow: [
+    //           BoxShadow(
+    //             color: Color.fromRGBO(0, 0, 0, 0.16),
+    //             offset: Offset(0, 5),
+    //             blurRadius: 10.0,
+    //           )
+    //         ],
+    //         borderRadius: BorderRadius.circular(9.0)),
+    //     child: Center(
+    //       child: Text("View Product",
+    //           style: const TextStyle(
+    //               color: const Color(0xfffefefe),
+    //               fontWeight: FontWeight.w600,
+    //               fontStyle: FontStyle.normal,
+    //               fontSize: 20.0)),
+    //     ),
+    //   ),
+    // );
 
     return Scaffold(
       backgroundColor: yellow,
@@ -60,15 +62,18 @@ class _ProductPageState extends State<ProductPage> {
         iconTheme: IconThemeData(color: darkGrey),
         actions: <Widget>[
           IconButton(
-              icon: new SvgPicture.asset('assets/icons/search_icon.svg', fit: BoxFit.scaleDown,), onPressed: ()=> Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => SearchPage())),)
+            icon: new SvgPicture.asset(
+              'assets/icons/search_icon.svg',
+              fit: BoxFit.scaleDown,
+            ),
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => SearchPage())),
+          )
         ],
         title: Text(
-          'Headphones',
+          product.name,
           style: const TextStyle(
-              color: darkGrey,
-              fontWeight: FontWeight.w500,
-              fontSize: 18.0),
+              color: darkGrey, fontWeight: FontWeight.w500, fontSize: 18.0),
         ),
       ),
       body: Stack(
@@ -80,31 +85,31 @@ class _ProductPageState extends State<ProductPage> {
                 SizedBox(
                   height: 80.0,
                 ),
-                ProductDisplay(product: product,),
+                ProductDisplay(
+                  product: product,
+                ),
                 SizedBox(
                   height: 16.0,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0,right: 16.0),
+                  padding: const EdgeInsets.only(left: 20.0, right: 16.0),
                   child: Text(
-                   product.name,
+                    product.name,
                     style: const TextStyle(
                         color: const Color(0xFFFEFEFE),
                         fontWeight: FontWeight.w600,
                         fontSize: 20.0),
                   ),
                 ),
-
                 SizedBox(
                   height: 24.0,
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Row(
                     children: <Widget>[
                       Container(
-                        width: 90,
+                        width: 110,
                         height: 40,
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(253, 192, 84, 1),
@@ -113,14 +118,43 @@ class _ProductPageState extends State<ProductPage> {
                               Border.all(color: Color(0xFFFFFFFF), width: 0.5),
                         ),
                         child: Center(
-                          child: new Text("Details",
+                          child: Text("Safety Guides",
                               style: const TextStyle(
-                                  color: const Color(0xeefefefe),
+                                  color: Color(0xeefefefe),
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.normal,
-                                  fontSize: 12.0)),
+                                  fontSize: 13.0)),
                         ),
-                      )
+                      ),
+                      Spacer(),
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ProductSheet()
+                            // ViewProductPage(
+                            //   product: product,
+                            // ),
+                          ),
+                        ),
+                        child: Container(
+                          width: 140,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(253, 192, 84, 1),
+                            borderRadius: BorderRadius.circular(4.0),
+                            border: Border.all(
+                                color: Color(0xFFFFFFFF), width: 0.5),
+                          ),
+                          child: Center(
+                            child: Text("View Product Details",
+                                style: const TextStyle(
+                                    color: Color(0xeefefefe),
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 15.0)),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -130,8 +164,7 @@ class _ProductPageState extends State<ProductPage> {
                 Padding(
                     padding:
                         EdgeInsets.only(left: 20.0, right: 40.0, bottom: 130),
-                    child: new Text(
-                        product.description,
+                    child: new Text(product.description,
                         style: const TextStyle(
                             color: const Color(0xfefefefe),
                             fontWeight: FontWeight.w800,
@@ -141,26 +174,25 @@ class _ProductPageState extends State<ProductPage> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: EdgeInsets.only(
-                  top: 8.0, bottom: bottomPadding != 20 ? 20 : bottomPadding),
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                    Color.fromRGBO(255, 255, 255, 0),
-                    Color.fromRGBO(253, 192, 84, 0.5),
-                    Color.fromRGBO(253, 192, 84, 1),
-                  ],
-                      begin: FractionalOffset.topCenter,
-                      end: FractionalOffset.bottomCenter)),
-              width: width,
-              height: 120,
-              child: Center(
-                  child: viewProductButton),
-            ),
-          ),
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: Container(
+          //     padding: EdgeInsets.only(
+          //         top: 8.0, bottom: bottomPadding != 20 ? 20 : bottomPadding),
+          //     decoration: BoxDecoration(
+          //         gradient: LinearGradient(
+          //             colors: [
+          //           Color.fromRGBO(255, 255, 255, 0),
+          //           Color.fromRGBO(253, 192, 84, 0.5),
+          //           Color.fromRGBO(253, 192, 84, 1),
+          //         ],
+          //             begin: FractionalOffset.topCenter,
+          //             end: FractionalOffset.bottomCenter)),
+          //     width: width,
+          //     height: 120,
+          //     child: Center(child: viewProductButton),
+          //   ),
+          // ),
         ],
       ),
     );

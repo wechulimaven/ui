@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 const Color primary = Color(0xFFFF3378);
 const Color secondary = Color(0xFFFF2278);
 
-const Color yellow = Color(0xffFDC054);
-const Color mediumYellow = Color(0xffFDB846);
-const Color darkYellow = Color(0xffE99E22);
-const Color transparentYellow = Color.fromRGBO(253, 184, 70, 0.7);
+const Color yellow = Color(0xff008000);
+const Color mediumYellow = Color(0xff52B640);
+const Color darkYellow = Color(0xff329B24);
+const Color transparentYellow = Color.fromRGBO(140, 239, 116, 1);
 const Color darkGrey = Color(0xff202020);
+const kPurple = Color(0xFF6F51FF);
 
 const LinearGradient mainButton = LinearGradient(colors: [
   Color.fromRGBO(236, 60, 3, 1),

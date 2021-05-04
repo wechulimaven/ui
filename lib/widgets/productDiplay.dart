@@ -34,19 +34,19 @@ class ProductDisplay extends StatelessWidget {
                   child: RichText(
                       text: TextSpan(children: [
                     TextSpan(
-                        text: '\$ ${product.price}',
+                        text: 'In',
                         style: const TextStyle(
                             color: const Color(0xFFFFFFFF),
                             fontWeight: FontWeight.w400,
                             fontFamily: "Montserrat",
                             fontSize: 36.0)),
                         TextSpan(
-                            text: '.58',
+                            text: 'STOCK',
                             style: const TextStyle(
                                 color: const Color(0xFFFFFFFF),
                                 fontWeight: FontWeight.w400,
                                 fontFamily: "Montserrat",
-                                fontSize: 18.0))
+                                fontSize: 15.0))
                   ])),
                 ))),
         Align(
@@ -54,7 +54,7 @@ class ProductDisplay extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0),
             child: Container(
-              height: screenAwareSize(220, context),
+              height: screenAwareSize(210, context),
               child: Stack(
                 children: <Widget>[
                   Padding(

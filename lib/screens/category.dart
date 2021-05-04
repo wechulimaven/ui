@@ -15,7 +15,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
     Category(
       Color(0xffFCE183),
       Color(0xffF68D7F),
-      'Gadgets',
+      'Buy Airtime',
       'assets/jeans_5.png',
     ),
     Category(

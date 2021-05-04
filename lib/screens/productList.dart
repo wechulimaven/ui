@@ -139,29 +139,31 @@ class ProductCard extends StatelessWidget {
                 ),
                 Column(
                   children: <Widget>[
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            product.name ?? '',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16.0),
-                          ),
-                        )),
+                    // Align(
+                    //     alignment: Alignment.topLeft,
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.all(8.0),
+                    //       child: Text(
+                    //         product.name ?? '',
+                    //         style:
+                    //             TextStyle(color: Colors.white, fontSize: 18.0),
+                    //       ),
+                    //     )),
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 12.0),
-                        padding: const EdgeInsets.fromLTRB(8.0, 4.0, 12.0, 4.0),
+                        padding: const EdgeInsets.fromLTRB(12.0, 4.0, 12.0, 4.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
                               topLeft: Radius.circular(10),
                               bottomLeft: Radius.circular(10)),
                           color: Color.fromRGBO(224, 69, 10, 1),
                         ),
                         child: Text(
-                          '\$${product.price ?? 0.0}',
+                          product.name ?? '',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,

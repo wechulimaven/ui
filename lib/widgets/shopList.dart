@@ -4,6 +4,8 @@ import 'package:coldStorage/utilis/config/color.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 
+import 'singleBottomsheetProduct.dart';
+
 class ShopItemList extends StatefulWidget {
   final Product product;
   final Function onRemove;
@@ -112,10 +114,10 @@ class _ShopItemListState extends State<ShopItemList> {
           ),
           Positioned(
               top: 5,
-              // child: ShopProductDisplay(
-              //   widget.product,
-              //   onPressed: widget.onRemove,
-              // )
+              child: ShopProductDisplay(
+                widget.product,
+                onPressed: widget.onRemove,
+              )
               ),
         ],
       ),
