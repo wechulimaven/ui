@@ -2,7 +2,7 @@
 import 'dart:async';
 
 // import 'package:coldStorage/pages/finder.dart';
-// import 'package:coldStorage/pages/map.dart';
+import 'package:coldStorage/pages/map.dart';
 import 'package:coldStorage/pages/notification.dart';
 import 'package:coldStorage/screens/profile.dart';
 import 'package:coldStorage/widgets/menuItem.dart';
@@ -134,9 +134,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       MenuItem(
                         icon: Icons.location_on,
                         title: "Station Finder",
-                  //       onTap: ()=> 
-                  //       Navigator.of(context)
-                  // .push(MaterialPageRoute(builder: (_) => StationFinder())),
+                        onTap: ()=> 
+                        Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => StationFinder())),
                       ),
                       MenuItem(
                         icon: Icons.card_giftcard,

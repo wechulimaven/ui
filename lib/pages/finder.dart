@@ -92,6 +92,7 @@
 //                   Align(
 //                     alignment: Alignment.topRight,
 //                     child: FloatingActionButton(
+//                       heroTag: null,
 //                       onPressed: _onMapTypeButtonPressed,
 //                       materialTapTargetSize: MaterialTapTargetSize.padded,
 //                       backgroundColor: Colors.green,
@@ -100,6 +101,7 @@
 //                   ),
 //                   SizedBox(height: 16.0),
 //                   FloatingActionButton(
+//                     heroTag: null,
 //                     onPressed: _onAddMarkerButtonPressed,
 //                     materialTapTargetSize: MaterialTapTargetSize.padded,
 //                     backgroundColor: Colors.green,

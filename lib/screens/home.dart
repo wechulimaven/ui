@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:coldStorage/models/products.dart';
 // import 'package:coldStorage/pages/finder.dart';
-// import 'package:coldStorage/pages/map.dart';
+import 'package:coldStorage/pages/map.dart';
 import 'package:coldStorage/screens/profile.dart';
 import 'package:coldStorage/utilis/config/color.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage>
     CategoryListPage(),
     CheckOutPage(),
     ProfilePage(),
-    // StationFinder(),
+    StationFinder(),
   ];
 
   @override
@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage>
         bottomNavigationBar: getFooter(),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-              selectedTab(3);
+              selectedTab(4);
             },
             child: Icon(
               Icons.place,
