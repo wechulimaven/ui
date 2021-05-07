@@ -18,39 +18,43 @@ class ProductDisplay extends StatelessWidget {
                 width: MediaQuery.of(context).size.width/1.5,
                 height: 85,
                 padding: EdgeInsets.only(right: 24),
-                decoration: new BoxDecoration(
-                    color: darkGrey,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        bottomLeft: Radius.circular(8.0)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.16),
-                          offset: Offset(0, 3),
-                          blurRadius: 6.0),
-                    ]),
-                child: Align(
-                  alignment: Alignment(1,0),
-                  child: RichText(
-                      text: TextSpan(children: [
-                    TextSpan(
-                        text: 'In',
-                        style: const TextStyle(
-                            color: const Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "Montserrat",
-                            fontSize: 36.0)),
-                        TextSpan(
-                            text: 'STOCK',
-                            style: const TextStyle(
-                                color: const Color(0xFFFFFFFF),
-                                fontWeight: FontWeight.w400,
-                                fontFamily: "Montserrat",
-                                fontSize: 15.0))
-                  ])),
-                ))),
+                // decoration: new BoxDecoration(
+                //     color: Color.fromRGBO(255, 255, 255, 0.9),
+                //     borderRadius: BorderRadius.only(
+                //         topLeft: Radius.circular(8.0),
+                //         bottomLeft: Radius.circular(8.0)
+                //         ),
+                //     boxShadow: [
+                //       BoxShadow(
+                //           color: Color.fromRGBO(0, 0, 0, 0.16),
+                //           offset: Offset(0, 3),
+                //           blurRadius: 6.0),
+                //     ]
+                //     ),
+                // child: Align(
+                //   alignment: Alignment(1,0),
+                //   child: RichText(
+                //       text: TextSpan(children: [
+                //     TextSpan(
+                //         text: 'In',
+                //         style: const TextStyle(
+                //             color: const Color(0xFFFFFFFF),
+                //             fontWeight: FontWeight.w400,
+                //             fontFamily: "Montserrat",
+                //             fontSize: 36.0)),
+                //         TextSpan(
+                //             text: 'STOCK',
+                //             style: const TextStyle(
+                //                 color: const Color(0xFFFFFFFF),
+                //                 fontWeight: FontWeight.w400,
+                //                 fontFamily: "Montserrat",
+                //                 fontSize: 15.0))
+                //   ])),
+                // )
+                )
+                ),
         Align(
-          alignment: Alignment(-1, 0),
+          alignment: Alignment(0, 0),
           child: Padding(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0),
             child: Container(
@@ -88,10 +92,10 @@ class ProductDisplay extends StatelessWidget {
                     builder: (_) => RatingPage())),
             constraints: const BoxConstraints(minWidth: 45, minHeight: 45),
             child:
-                Icon(Icons.favorite, color: Color.fromRGBO(255, 137, 147, 1)),
+                Icon(Icons.star_border_purple500_sharp, color: Color.fromRGBO(255, 137, 147, 1)),
             elevation: 0.0,
             shape: CircleBorder(),
-            fillColor: Color.fromRGBO(255, 255, 255, 0.4),
+            fillColor:darkGrey,
           ),
         )
       ],

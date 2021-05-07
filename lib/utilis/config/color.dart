@@ -9,6 +9,7 @@ const Color darkYellow = Color(0xff329B24);
 const Color transparentYellow = Color.fromRGBO(140, 239, 116, 1);
 const Color darkGrey = Color(0xff202020);
 const kPurple = Color(0xFF6F51FF);
+const Color myColor = Colors.brown;
 
 const LinearGradient mainButton = LinearGradient(colors: [
   Color.fromRGBO(236, 60, 3, 1),

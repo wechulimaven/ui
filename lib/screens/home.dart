@@ -1,16 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:coldStorage/models/products.dart';
-import 'package:coldStorage/pages/notification.dart';
-import 'package:coldStorage/pages/search.dart';
-import 'package:coldStorage/screens/productList.dart';
+// import 'package:coldStorage/pages/finder.dart';
+// import 'package:coldStorage/pages/map.dart';
 import 'package:coldStorage/screens/profile.dart';
-import 'package:coldStorage/screens/tab.dart';
 import 'package:coldStorage/utilis/config/color.dart';
-import 'package:coldStorage/widgets/Bottom_Bar.dart';
-import 'package:coldStorage/widgets/customBackground.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'category.dart';
@@ -55,6 +49,7 @@ class _MainPageState extends State<MainPage>
     CategoryListPage(),
     CheckOutPage(),
     ProfilePage(),
+    // StationFinder(),
   ];
 
   @override

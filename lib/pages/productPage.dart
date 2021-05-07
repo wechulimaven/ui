@@ -27,35 +27,8 @@ class _ProductPageState extends State<ProductPage> {
     double width = MediaQuery.of(context).size.width;
     double bottomPadding = MediaQuery.of(context).padding.bottom;
 
-    // Widget viewProductButton = InkWell(
-    //   // onTap: () => Navigator.of(context)
-    //   //     .push(MaterialPageRoute(builder: (_) => ViewProductPage(product: product,))),
-    //   child: Container(
-    //     height: 80,
-    //     width: width / 1.5,
-    //     decoration: BoxDecoration(
-    //         gradient: mainButton,
-    //         boxShadow: [
-    //           BoxShadow(
-    //             color: Color.fromRGBO(0, 0, 0, 0.16),
-    //             offset: Offset(0, 5),
-    //             blurRadius: 10.0,
-    //           )
-    //         ],
-    //         borderRadius: BorderRadius.circular(9.0)),
-    //     child: Center(
-    //       child: Text("View Product",
-    //           style: const TextStyle(
-    //               color: const Color(0xfffefefe),
-    //               fontWeight: FontWeight.w600,
-    //               fontStyle: FontStyle.normal,
-    //               fontSize: 20.0)),
-    //     ),
-    //   ),
-    // );
-
     return Scaffold(
-      backgroundColor: yellow,
+      backgroundColor: Colors.grey[500],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -96,7 +69,7 @@ class _ProductPageState extends State<ProductPage> {
                   child: Text(
                     product.name,
                     style: const TextStyle(
-                        color: const Color(0xFFFEFEFE),
+                        color: darkGrey,
                         fontWeight: FontWeight.w600,
                         fontSize: 20.0),
                   ),
@@ -112,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
                         width: 110,
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(253, 192, 84, 1),
+                          color: mediumYellow,
                           borderRadius: BorderRadius.circular(4.0),
                           border:
                               Border.all(color: Color(0xFFFFFFFF), width: 0.5),
@@ -120,7 +93,7 @@ class _ProductPageState extends State<ProductPage> {
                         child: Center(
                           child: Text("Safety Guides",
                               style: const TextStyle(
-                                  color: Color(0xeefefefe),
+                                  color: darkGrey,
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 13.0)),
@@ -140,7 +113,7 @@ class _ProductPageState extends State<ProductPage> {
                           width: 140,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(253, 192, 84, 1),
+                            color: mediumYellow,
                             borderRadius: BorderRadius.circular(4.0),
                             border: Border.all(
                                 color: Color(0xFFFFFFFF), width: 0.5),
@@ -148,7 +121,7 @@ class _ProductPageState extends State<ProductPage> {
                           child: Center(
                             child: Text("View Product Details",
                                 style: const TextStyle(
-                                    color: Color(0xeefefefe),
+                                    color: darkGrey,
                                     fontWeight: FontWeight.w400,
                                     fontStyle: FontStyle.normal,
                                     fontSize: 15.0)),
@@ -166,7 +139,7 @@ class _ProductPageState extends State<ProductPage> {
                         EdgeInsets.only(left: 20.0, right: 40.0, bottom: 130),
                     child: new Text(product.description,
                         style: const TextStyle(
-                            color: const Color(0xfefefefe),
+                            color: Colors.black87,
                             fontWeight: FontWeight.w800,
                             fontFamily: "NunitoSans",
                             fontStyle: FontStyle.normal,

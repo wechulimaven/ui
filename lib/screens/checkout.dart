@@ -1,5 +1,8 @@
 import 'package:coldStorage/models/products.dart';
+import 'package:coldStorage/pages/addressPage.dart';
+import 'package:coldStorage/pages/unpaidPage.dart';
 import 'package:coldStorage/utilis/config/color.dart';
+import 'package:coldStorage/widgets/creditCard.dart';
 import 'package:coldStorage/widgets/shopList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -16,18 +19,18 @@ class _CheckOutPageState extends State<CheckOutPage> {
 
   List<Product> products = [
     Product(
-        'assets/headphones.png',
-        'Boat roackerz 400 On-Ear Bluetooth Headphones',
+        'assets/gas/g6.jpeg',
+        'Gas Tamu',
         'description',
         45.3),
     Product(
-        'assets/headphones_2.png',
-        'Boat roackerz 100 On-Ear Bluetooth Headphones',
+        'assets/lubricant/liter.jpeg',
+        'Engine Oil',
         'description',
         22.3),
     Product(
-        'assets/headphones_3.png',
-        'Boat roackerz 300 On-Ear Bluetooth Headphones',
+        'assets/gas/accesories/a7.jpeg',
+        'Supporter',
         'description',
         58.3)
   ];
@@ -35,8 +38,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
   @override
   Widget build(BuildContext context) {
     Widget checkOutButton = InkWell(
-      // onTap: () => Navigator.of(context)
-      //     .push(MaterialPageRoute(builder: (_) => AddAddressPage())),
+      onTap: () => Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => AddAddressPage())),
       child: Container(
         height: 80,
         width: MediaQuery.of(context).size.width / 1.5,
@@ -70,8 +73,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
         actions: <Widget>[
           IconButton(
             icon: Image.asset('assets/icons/denied_wallet.png'),
-              // onPressed: () => Navigator.of(context).push(
-              //     MaterialPageRoute(builder: (_) => UnpaidPage())),
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => UnpaidPage())),
           )
         ],
         title: Text(
@@ -140,7 +143,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   child: Swiper(
                     itemCount: 2,
                     itemBuilder: (_, index) {
-                      // return CreditCard();
+                      return CreditCard();
                     },
                     scale: 0.8,
                     controller: swiperController,

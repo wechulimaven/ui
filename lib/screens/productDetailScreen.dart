@@ -1,9 +1,14 @@
 import 'package:coldStorage/models/products.dart';
+import 'package:coldStorage/pages/moreProducts.dart';
 import 'package:coldStorage/pages/search.dart';
 import 'package:coldStorage/utilis/config/color.dart';
+import 'package:coldStorage/widgets/cartBottomSheet.dart';
 import 'package:coldStorage/widgets/productCardOptions.dart';
+import 'package:coldStorage/widgets/ratingBottomSheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'checkout.dart';
 
 
 class ViewProductPage extends StatefulWidget {
@@ -64,13 +69,13 @@ class _ViewProductPageState extends State<ViewProductPage> {
         maxLines: 5,
         semanticsLabel: '...',
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
+        style: TextStyle(color: darkGrey),
       ),
     );
 
     return Scaffold(
         key: _scaffoldKey,
-        backgroundColor: yellow,
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.9),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -83,7 +88,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
             )
           ],
           title: Text(
-            'Headphones',
+            product.name,
             style: const TextStyle(
                 color: darkGrey,
                 fontWeight: FontWeight.w500,
@@ -118,7 +123,7 @@ class _ViewProductPageState extends State<ViewProductPage> {
                         showModalBottomSheet(
                             context: context,
                             builder: (context) {
-                              // return RatingBottomSheet();
+                              return RatingBottomSheet(product: product,);
                             },
                             //elevation: 0,
                             //backgroundColor: Colors.transparent
@@ -126,18 +131,116 @@ class _ViewProductPageState extends State<ViewProductPage> {
                       },
                       constraints:
                           const BoxConstraints(minWidth: 45, minHeight: 45),
-                      child: Icon(Icons.favorite,
+                      child: Icon(Icons.star_rate_sharp,
                           color: Color.fromRGBO(255, 137, 147, 1)),
                       elevation: 0.0,
                       shape: CircleBorder(),
-                      fillColor: Color.fromRGBO(255, 255, 255, 0.4),
+                      fillColor: darkGrey,
                     ),
                   ]),
                 ),
-                // MoreProducts()
+                MoreProducts()
               ],
             ),
           ),
         ));
+  }
+}
+
+class ProductOption extends StatelessWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey;
+  final Product product;
+  const ProductOption(this.scaffoldKey, {Key key, this.product}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            left: 16.0,
+            child: Image.asset(
+              product.image,
+              height: 200,
+              width: 200,
+            ),
+          ),
+          Positioned(
+            right: 0.0,
+            child: Container(
+              height: 180,
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Text(product.name,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: darkGrey,
+                            shadows: shadow)),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>CheckOutPage()));
+
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          gradient: mainButton,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0))),
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Center(
+                        child: Text(
+                          'Buy Now',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      scaffoldKey.currentState.showBottomSheet((context) {
+                        return ShopBottomSheet();
+                      });
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          gradient: mainButton,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0))),
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Center(
+                        child: Text(
+                          'Add to cart',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
